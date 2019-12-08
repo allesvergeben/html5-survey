@@ -1,6 +1,17 @@
 <template>
-  <div id="app">
+  <div id="app" data-app>
+    <v-app-bar app flat>
+        <v-btn text v-on:click="$router.back()">
+          zurück
+        </v-btn>
+    </v-app-bar>
     <router-view/>
+      <v-footer app fixed>
+          <v-spacer/>
+          <v-btn text v-on:click="$router.push()">
+            Impressum
+          </v-btn>
+      </v-footer>
   </div>
 </template>
 
