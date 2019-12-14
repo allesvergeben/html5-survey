@@ -49,7 +49,6 @@
     </div>
 </template>
 
-
 <script>
     import HelpDialog from '../components/HelpDialog'
     export default {
@@ -78,11 +77,19 @@
             this.art = this.$route.query.second;
         },
         methods: {
-            forceFileDownload(response){
+            ZipDownload(response){
                 const url = window.URL.createObjectURL(new Blob([response.data]));
                 const link = document.createElement('a');
                 link.href = url;
                 link.setAttribute('download', 'dein-template.zip'); //or any other extension
+                document.body.appendChild(link);
+                link.click()
+            },
+            WeblocDownload(response){
+                const url = window.URL.createObjectURL(new Blob([response.data]));
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('download', 'PDF-Exporter.webloc'); //or any other extension
                 document.body.appendChild(link);
                 link.click()
             },
@@ -94,6 +101,16 @@
                 var urlp = this.chooses[0] ? "pagenumbers" : "nopagenumbers";
                 var urll = this.chooses[1] ? "linear" : "komplex";
                 var url = "/downloads/" + urlp + "/" + urll + "/";
+                if (this.chooses[2]) {
+                    this.$http({
+                        method: 'get',
+                        url: "/downloads/PDF-Exporter.webloc",
+                        responseType: 'arraybuffer'
+                    })
+                        .then(response => {
+                            this.WeblocDownload(response)
+                        });
+                }
                 switch (type) {
                     case 0:
                         var download0 = url + art + "-DHBW" + numbered + ".zip";
@@ -103,7 +120,7 @@
                             responseType: 'arraybuffer'
                         })
                             .then(response => {
-                                this.forceFileDownload(response)
+                                this.ZipDownload(response)
                             });
                         //DHBW
                         break;
@@ -115,7 +132,7 @@
                             responseType: 'arraybuffer'
                         })
                             .then(response => {
-                                this.forceFileDownload(response)
+                                this.ZipDownload(response)
                             });
                         //ON
                         break;
@@ -127,7 +144,7 @@
                             responseType: 'arraybuffer'
                         })
                             .then(response => {
-                                this.forceFileDownload(response)
+                                this.ZipDownload(response)
                             });
                         //Blau
                         break;
@@ -139,7 +156,7 @@
                             responseType: 'arraybuffer'
                         })
                             .then(response => {
-                                this.forceFileDownload(response)
+                                this.ZipDownload(response)
                             });
                         //Custom
                         break;
