@@ -2,8 +2,10 @@ import Vue from 'vue';
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
 import de from 'vuetify/es5/locale/de';
+import VueResource from 'vue-resource'
 
 Vue.use(Vuetify);
+Vue.use(VueResource);
 
 export default new Vuetify({
   theme: {

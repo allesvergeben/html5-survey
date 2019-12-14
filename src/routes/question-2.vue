@@ -15,12 +15,26 @@
                     </v-card>
                 </v-row>
                 <v-row class="card">
-                    <v-btn dark large outlined text style="border-color: cornflowerblue;color: cornflowerblue; margin-right: 5%" v-on:click="next(true)">
-                        Linear
-                    </v-btn>
+                    <v-card style="margin-right: 5%" width="20%" flat>
+                        <v-img src="../assets/examples/LinearVorschau.png" alt="Beispiel Linear"/>
+                        <v-card-actions>
+                            <v-spacer/>
+                            <v-btn dark large outlined text style="border-color: cornflowerblue;color: cornflowerblue;" v-on:click="next(true)">
+                                Linear
+                            </v-btn>
+                            <v-spacer/>
+                        </v-card-actions>
+                    </v-card>
+                    <v-card style="margin-right: 5%" width="20%" flat>
+                        <v-img src="../assets/examples/KomplexVorschau.png" alt="Beispiel Komplex"/>
+                        <v-card-actions>
+                            <v-spacer/>
                     <v-btn dark large outlined text style="border-color: cornflowerblue; color: cornflowerblue;" v-on:click="next(false)">
                         Komplex
                     </v-btn>
+                            <v-spacer/>
+                        </v-card-actions>
+                    </v-card>
                 </v-row>
             </v-col>
         </v-row>

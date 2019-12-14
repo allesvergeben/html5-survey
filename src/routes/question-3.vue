@@ -24,6 +24,9 @@
                 </v-row>
             </v-col>
         </v-row>
+        <v-alert dismissible type="info" style="background-color: cornflowerblue; margin: 0 20% 0 20%;" v-if="!this.$route.query.second">
+            Komplexe Layouts sind nur bedingt umwandelbar zu .pdf Dateien.
+        </v-alert>
     </v-container>
 </template>
 
